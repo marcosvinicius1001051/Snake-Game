@@ -7,7 +7,6 @@ let cobraX = 10;
 let cobraY = 10;
 let direcaoX = 0;
 let direcaoY = -1;
-
 console.log(colunas);
 console.log(ctx);
 
@@ -27,6 +26,24 @@ function loop() {
   atualizar();
   desenhar();
 }
-
 setInterval(loop, 250);
 
+function teclar(evento) {
+  if (evento.key === "ArrowUp") {
+    direcaoX = 0;
+    direcaoY = -1;
+  }
+  if (evento.key === "ArrowDown") {
+    direcaoX = 0;
+    direcaoY = 1;
+  }
+  if (evento.key === "ArrowLeft") {
+    direcaoX = -1;
+    direcaoY = 0;
+  }
+  if (evento.key === "ArrowRight") {
+    direcaoX = 1;
+    direcaoY = 0;
+  }
+}
+document.addEventListener("keydown", teclar);
