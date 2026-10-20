@@ -15,4 +15,9 @@ function desenhar() {
   ctx.fillStyle = "lime";
   ctx.fillRect(cobraX * tamanho, cobraY * tamanho, tamanho, tamanho);
 }
+
+function atualizar() {
+  cobraX++;
+}
+atualizar();
 desenhar();
