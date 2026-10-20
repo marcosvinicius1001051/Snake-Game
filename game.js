@@ -7,6 +7,8 @@ let cobraX = 10;
 let cobraY = 10;
 let direcaoX = 0;
 let direcaoY = -1;
+let comidaX = 5;
+let comidaY = 5;
 console.log(colunas);
 console.log(ctx);
 
@@ -15,6 +17,8 @@ function desenhar() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "lime";
   ctx.fillRect(cobraX * tamanho, cobraY * tamanho, tamanho, tamanho);
+  ctx.fillStyle = "brown";
+  ctx.fillRect(comidaX * tamanho, comidaY * tamanho, tamanho, tamanho);
 }
 
 function atualizar() {
@@ -47,3 +51,4 @@ function teclar(evento) {
   }
 }
 document.addEventListener("keydown", teclar);
+
