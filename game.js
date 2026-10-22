@@ -9,12 +9,15 @@ let direcaoX = 0;
 let direcaoY = -1;
 let comidaX = 5;
 let comidaY = 5;
+let corpo = [{x: 10, y: 10}];
 
 function desenhar() {
   ctx.fillStyle = "green";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "lime";
-  ctx.fillRect(cobraX * tamanho, cobraY * tamanho, tamanho, tamanho);
+  for (let i = 0; i < corpo.length; i++) {
+    ctx.fillRect(corpo[i].x * tamanho, corpo[i].y * tamanho, tamanho, tamanho);
+  }
   ctx.fillStyle = "brown";
   ctx.fillRect(comidaX * tamanho, comidaY * tamanho, tamanho, tamanho);
 }
@@ -22,9 +25,12 @@ function desenhar() {
 function atualizar() {
   cobraX += direcaoX;
   cobraY += direcaoY;
+  corpo.unshift({x: cobraX, y: cobraY});
   if (cobraX === comidaX && cobraY === comidaY) {
     comidaX = Math.floor(Math.random() * colunas);
     comidaY = Math.floor(Math.random() * linhas);
+  } else {
+    corpo.pop();
   }
 }
 
