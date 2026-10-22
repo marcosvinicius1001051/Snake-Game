@@ -9,8 +9,6 @@ let direcaoX = 0;
 let direcaoY = -1;
 let comidaX = 5;
 let comidaY = 5;
-console.log(colunas);
-console.log(ctx);
 
 function desenhar() {
   ctx.fillStyle = "green";
