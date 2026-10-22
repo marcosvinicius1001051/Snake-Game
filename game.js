@@ -10,6 +10,8 @@ let direcaoY = -1;
 let comidaX = 5;
 let comidaY = 5;
 let corpo = [{ x: 10, y: 10 }];
+let pontos = 0;
+const pontosTela = document.getElementById("pontos");
 
 function desenhar() {
   ctx.fillStyle = "green";
@@ -28,6 +30,8 @@ function reiniciar() {
   direcaoX = 0;
   direcaoY = -1;
   corpo = [{ x: 10, y: 10 }];
+  pontos = 0;
+  pontosTela.textContent = pontos;
 }
 
 function atualizar() {
@@ -49,6 +53,8 @@ function atualizar() {
   corpo.unshift({ x: cobraX, y: cobraY });
 
   if (cobraX === comidaX && cobraY === comidaY) {
+    pontos++;
+    pontosTela.textContent = pontos;
     comidaX = Math.floor(Math.random() * colunas);
     comidaY = Math.floor(Math.random() * linhas);
   } else {
