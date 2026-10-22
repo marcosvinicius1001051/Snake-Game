@@ -24,6 +24,10 @@ function desenhar() {
 function atualizar() {
   cobraX += direcaoX;
   cobraY += direcaoY;
+  if (cobraX === comidaX && cobraY === comidaY) {
+    comidaX = Math.floor(Math.random() * colunas);
+    comidaY = Math.floor(Math.random() * linhas);
+  }
 }
 
 function loop() {
