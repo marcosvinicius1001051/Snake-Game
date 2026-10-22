@@ -16,12 +16,18 @@ const pontosTela = document.getElementById("pontos");
 function desenhar() {
   ctx.fillStyle = "green";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "lime";
+  ctx.fillStyle = "#7cfc00";
   for (let i = 0; i < corpo.length; i++) {
     ctx.fillRect(corpo[i].x * tamanho, corpo[i].y * tamanho, tamanho, tamanho);
+    ctx.strokeStyle = "white";
+    ctx.lineWidth = 1;
+    ctx.strokeRect(corpo[i].x * tamanho, corpo[i].y * tamanho, tamanho, tamanho);
   }
-  ctx.fillStyle = "brown";
+  ctx.fillStyle = "#ff4d4d";
   ctx.fillRect(comidaX * tamanho, comidaY * tamanho, tamanho, tamanho);
+  ctx.strokeStyle = "red";
+  ctx.lineWidth = 1;
+  ctx.strokeRect(comidaX * tamanho, comidaY * tamanho, tamanho, tamanho);
 }
 
 function reiniciar() {
