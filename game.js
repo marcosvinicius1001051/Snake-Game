@@ -9,7 +9,7 @@ let direcaoX = 0;
 let direcaoY = -1;
 let comidaX = 5;
 let comidaY = 5;
-let corpo = [{x: 10, y: 10}];
+let corpo = [{ x: 10, y: 10 }];
 
 function desenhar() {
   ctx.fillStyle = "green";
@@ -22,10 +22,32 @@ function desenhar() {
   ctx.fillRect(comidaX * tamanho, comidaY * tamanho, tamanho, tamanho);
 }
 
+function reiniciar() {
+  cobraX = 10;
+  cobraY = 10;
+  direcaoX = 0;
+  direcaoY = -1;
+  corpo = [{ x: 10, y: 10 }];
+}
+
 function atualizar() {
   cobraX += direcaoX;
   cobraY += direcaoY;
-  corpo.unshift({x: cobraX, y: cobraY});
+
+  if (cobraX < 0 || cobraX >= colunas || cobraY < 0 || cobraY >= linhas) {
+    reiniciar();
+    return;
+  }
+
+  for (let i = 0; i < corpo.length; i++) {
+    if (corpo[i].x === cobraX && corpo[i].y === cobraY) {
+      reiniciar();
+      return;
+    }
+  }
+
+  corpo.unshift({ x: cobraX, y: cobraY });
+
   if (cobraX === comidaX && cobraY === comidaY) {
     comidaX = Math.floor(Math.random() * colunas);
     comidaY = Math.floor(Math.random() * linhas);
@@ -59,4 +81,3 @@ function teclar(evento) {
   }
 }
 document.addEventListener("keydown", teclar);
-
